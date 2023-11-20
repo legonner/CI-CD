@@ -23,3 +23,15 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
+
+    - name: Build
+      run: |
+        npm run build
+
+    - name: Test
+      run: |
+        npm test
+
+    - name: Manual Trigger
+      if: github.event_name == 'workflow_dispatch'
+      run: echo "Manual trigger executed"
