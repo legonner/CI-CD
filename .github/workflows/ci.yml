@@ -23,11 +23,3 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
-
-    - name: Commit and Push Changes
-      run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git add .
-        git commit -m "CI: Automated build and test"
-        git push https://${{ secrets.ACTIONS_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
