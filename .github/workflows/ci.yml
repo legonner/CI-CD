@@ -36,37 +36,3 @@ jobs:
         git add .
         git commit -m "CI: Automated build and test"
         git push
-
-  update-on-pr:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 14
-
-    - name: Install Dependencies
-      run: |
-        npm install
-
-    - name: Build and Test
-      run: |
-        npm run build
-        npm test
-
-    - name: Add Workflow Link
-      run: |
-        echo "Workflow link: ${{ github.workflow }}" > workflow-link.txt
-      env:
-        CI_WORKFLOW: ${{ github.workflow }}
-
-    - name: Add Pull Request Workflow Link
-      run: |
-        echo "Pull Request Workflow link: ${{ github.workflow }}" > pull-request-workflow-link.txt
-      env:
-        CI_WORKFLOW_PR: ${{ github.workflow }}
