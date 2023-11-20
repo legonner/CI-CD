@@ -30,4 +30,4 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add .
         git commit -m "CI: Automated build and test"
-        git push
+        git push https://${{ secrets.ACTIONS_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
