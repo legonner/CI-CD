@@ -60,11 +60,13 @@ jobs:
         npm test
 
     - name: Add Workflow Link
-      run: echo "Workflow link: ${{ github.workflow }}" > workflow-link.txt
+      run: |
+        echo "Workflow link: ${{ github.workflow }}" > workflow-link.txt
       env:
         CI_WORKFLOW: ${{ github.workflow }}
 
     - name: Add Pull Request Workflow Link
-      run: echo "Pull Request Workflow link: ${{ github.workflow }}" > pull-request-workflow-link.txt
+      run: |
+        echo "Pull Request Workflow link: ${{ github.workflow }}" > pull-request-workflow-link.txt
       env:
         CI_WORKFLOW_PR: ${{ github.workflow }}
