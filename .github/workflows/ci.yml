@@ -1,9 +1,10 @@
-name: Node.js CI
+name: Node.js Continuous Integration
 
 on:
   push:
     branches:
       - main
+      - jenk
   workflow_dispatch:
   pull_request:
     types:
@@ -24,13 +25,10 @@ jobs:
         node-version: 14
 
     - name: Install Dependencies
-      run: |
-        npm install
+      run: npm install
 
     - name: Build Project
-      run: |
-        npm run 
+      run: npm run build
 
     - name: Run Unit Tests
-      run: |
-        npm test
+      run: npm test
