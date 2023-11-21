@@ -112,7 +112,7 @@ app.patch("/products/:id", (req, res) => {
   });
 });
 
-// DELETE
+// DELETE_
 app.delete("/products/:id", (req, res) => {
   const id = req.params.id;
   const sql = `DELETE FROM products WHERE id = ?`;
